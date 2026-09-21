@@ -1,0 +1,3 @@
+.artifact/
+.DS_Store
+node_modules/

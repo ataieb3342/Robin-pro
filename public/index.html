@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Robin Plantiveau, plombier-chauffagiste artisan à Dijon. Dépannage d'urgence 7j/7, sanitaire, chauffage. Tarifs affichés, devis gratuit sous 24 h.">
+<!-- Maquette en cours : coordonnees et tarifs fictifs. On retire ce noindex le jour de la mise en ligne reelle. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B2C2F">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Plomberie Plantiveau — Dijon">
+<meta property="og:description" content="Robin Plantiveau, plombier-chauffagiste artisan à Dijon. Dépannage d'urgence 7j/7, sanitaire, chauffage. Tarifs affichés, devis gratuit sous 24 h.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B2C2F'/%3E%3Cpath d='M8 24V14a4 4 0 0 1 4-4h6' stroke='%23E4EEEB' stroke-width='2.6' fill='none'/%3E%3Cpath d='M18 7h6v6h-6z' stroke='%23BD6A34' stroke-width='2.6' fill='none'/%3E%3Ccircle cx='8' cy='24' r='2.6' fill='%23BD6A34'/%3E%3C/svg%3E">
+<!--A1-->
+<title>Plomberie Plantiveau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Azeret+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#E9ECEA; --surface:#FFFFFF; --surface-2:#F3F6F4;
+  --deep:#0B2C2F; --deep-2:#103A3E;
+  --ink:#0F1D1C; --muted:#586764; --faint:#8A9A96;
+  --copper:#BD6A34; --copper-ink:#FFFFFF; --copper-soft:#EFDDD0;
+  --line:#CFD7D4; --line-strong:#B2BFBB;
+  --on-deep:#E4EEEB; --on-deep-muted:#8FAEAB; --on-deep-line:#1E4A4D;
+  --ok:#2F7A5B; --no:#A8452A;
+  --on-deep-ok:#57B98A; --on-deep-warn:#E0B252;
+  --shadow:0 1px 2px rgba(11,44,47,.06), 0 12px 28px -18px rgba(11,44,47,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#091413; --surface:#0E1D1C; --surface-2:#132524;
+    --deep:#061819; --deep-2:#0C2729;
+    --ink:#E6EDEA; --muted:#9AABA7; --faint:#6E817D;
+    --copper:#DD8B54; --copper-ink:#1A0E06; --copper-soft:#3A2A21;
+    --line:#223634; --line-strong:#2E4644;
+    --on-deep:#E4EEEB; --on-deep-muted:#8FAEAB; --on-deep-line:#173A3C;
+    --ok:#4FA37C; --no:#E0714D;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 30px -20px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#091413; --surface:#0E1D1C; --surface-2:#132524;
+  --deep:#061819; --deep-2:#0C2729;
+  --ink:#E6EDEA; --muted:#9AABA7; --faint:#6E817D;
+  --copper:#DD8B54; --copper-ink:#1A0E06; --copper-soft:#3A2A21;
+  --line:#223634; --line-strong:#2E4644;
+  --on-deep:#E4EEEB; --on-deep-muted:#8FAEAB; --on-deep-line:#173A3C;
+  --ok:#4FA37C; --no:#E0714D;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 30px -20px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{
+  font-family:"Archivo", ui-sans-serif, system-ui, sans-serif;
+  font-variation-settings:"wdth" 118;
+  margin:0; line-height:1.02; letter-spacing:-.02em; text-wrap:balance;
+}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--copper); outline-offset:3px; border-radius:2px}
+
+.mono{font-family:"Azeret Mono", ui-monospace, SFMono-Regular, Menlo, monospace}
+.shell{width:100%; max-width:1080px; margin-inline:auto; padding-inline:20px}
+
+/* ---------- header ---------- */
+.topbar{
+  position:sticky; top:env(safe-area-inset-top, 0px); z-index:40;
+  background:color-mix(in oklab, var(--deep) 92%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--on-deep-line);
+}
+.topbar-in{display:flex; align-items:center; gap:18px; padding-block:12px}
+.brand{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--on-deep); margin-right:auto}
+.brand-mark{width:30px; height:30px; flex:none}
+.brand-name{font-family:"Archivo",sans-serif; font-variation-settings:"wdth" 112; font-weight:800; font-size:1.02rem; letter-spacing:-.01em; line-height:1}
+.brand-sub{display:block; font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--on-deep-muted); font-weight:500; margin-top:3px}
+@media(max-width:430px){
+  .brand-name{font-size:.94rem}
+  .brand-sub{display:none}
+  .topbar-in{gap:12px}
+  .tel-btn{padding:9px 13px}
+}
+.nav{display:none; gap:22px}
+@media(min-width:900px){.nav{display:flex}}
+.nav a{color:var(--on-deep-muted); text-decoration:none; font-size:.86rem; font-weight:500; transition:color .18s}
+.nav a:hover{color:var(--on-deep)}
+.tel-btn{
+  display:inline-flex; align-items:center; gap:8px; white-space:nowrap;
+  background:var(--copper); color:var(--copper-ink); text-decoration:none;
+  padding:9px 15px; border-radius:2px; font-weight:600; font-size:.88rem;
+  border:1px solid transparent; transition:transform .15s, filter .18s;
+}
+.tel-btn:hover{filter:brightness(1.07); transform:translateY(-1px)}
+.pulse{width:7px; height:7px; border-radius:50%; background:currentColor; flex:none}
+
+/* ---------- hero ---------- */
+.hero{background:var(--deep); color:var(--on-deep); position:relative; overflow:hidden}
+.hero-in{display:grid; gap:44px; padding-block:64px 56px; position:relative; z-index:2}
+@media(min-width:940px){
+  .hero-in{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); align-items:center; padding-block:88px 76px; gap:56px}
+}
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px; font-size:.7rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--copper); font-weight:500; margin-bottom:22px;
+}
+.eyebrow::before{content:''; width:26px; height:1px; background:var(--copper)}
+h1{
+  font-size:clamp(2.5rem, 6.2vw, 4.4rem); font-weight:800; font-variation-settings:"wdth" 122;
+  letter-spacing:-.035em;
+}
+h1 em{font-style:normal; color:var(--copper)}
+.lede{margin-top:24px; max-width:56ch; color:var(--on-deep-muted); font-size:1.09rem}
+.lede strong{color:var(--on-deep); font-weight:600}
+.hero-cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:32px}
+.btn{
+  display:inline-flex; align-items:center; gap:9px; padding:13px 22px; border-radius:2px;
+  text-decoration:none; font-weight:600; font-size:.95rem; border:1px solid var(--on-deep-line);
+  color:var(--on-deep); transition:background .18s, transform .15s, border-color .18s;
+}
+.btn:hover{background:rgba(255,255,255,.06); transform:translateY(-1px)}
+.btn-primary{background:var(--copper); color:var(--copper-ink); border-color:var(--copper)}
+.btn-primary:hover{background:var(--copper); filter:brightness(1.08)}
+.hero-facts{
+  display:flex; flex-wrap:wrap; gap:8px 26px; margin-top:34px; padding-top:22px;
+  border-top:1px solid var(--on-deep-line); font-size:.76rem; letter-spacing:.06em;
+  color:var(--on-deep-muted); text-transform:uppercase;
+}
+.hero-facts b{color:var(--on-deep); font-weight:500}
+
+.triage{
+  border:1px solid var(--on-deep-line); background:var(--deep-2); border-radius:3px;
+  padding:22px 22px 18px; display:grid; gap:15px; align-content:start;
+  max-width:430px; width:100%; margin-inline:auto;
+}
+.triage-eyebrow{font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color:var(--copper); font-weight:600}
+.triage-q{font-family:"Archivo",sans-serif; font-variation-settings:"wdth" 110; font-weight:800; font-size:1.3rem; letter-spacing:-.02em; color:var(--on-deep); line-height:1.15}
+.sym{display:flex; flex-wrap:wrap; gap:7px}
+.sym button{
+  font:inherit; font-size:.81rem; cursor:pointer; border-radius:99px; padding:7px 13px;
+  border:1px solid var(--on-deep-line); background:transparent; color:var(--on-deep-muted);
+  transition:border-color .15s, color .15s, background .15s;
+}
+.sym button:hover{border-color:var(--copper); color:var(--on-deep)}
+.sym button[aria-pressed="true"]{background:var(--copper); border-color:var(--copper); color:var(--copper-ink); font-weight:600}
+.tri-lvl{display:inline-flex; align-items:center; gap:8px; font-size:.67rem; letter-spacing:.15em; text-transform:uppercase; font-weight:600}
+.tri-lvl::before{content:''; width:8px; height:8px; border-radius:50%; background:currentColor; flex:none}
+.lvl-3{color:var(--copper)} .lvl-2{color:var(--on-deep-warn)} .lvl-1{color:var(--on-deep-ok)}
+.tri-steps{list-style:none; margin:10px 0 0; padding:0; display:grid; gap:10px; counter-reset:s}
+.tri-steps li{display:grid; grid-template-columns:20px 1fr; gap:11px; font-size:.87rem; color:var(--on-deep); line-height:1.5}
+.tri-steps li::before{
+  counter-increment:s; content:counter(s);
+  font-family:"Azeret Mono", ui-monospace, monospace; font-size:.68rem; color:var(--copper);
+  border:1px solid var(--on-deep-line); border-radius:50%;
+  width:20px; height:20px; display:grid; place-items:center; margin-top:2px;
+}
+.tri-foot{
+  display:flex; align-items:center; gap:9px; padding-top:13px; margin-top:3px;
+  border-top:1px dashed var(--on-deep-line); font-size:.78rem; color:var(--on-deep-muted);
+}
+.live{width:8px; height:8px; border-radius:50%; background:var(--on-deep-ok); flex:none;
+  box-shadow:0 0 0 3px color-mix(in oklab, var(--on-deep-ok) 22%, transparent)}
+.live.oncall{background:var(--copper); box-shadow:0 0 0 3px color-mix(in oklab, var(--copper) 22%, transparent)}
+@keyframes flow{to{stroke-dashoffset:-120}}
+.pipe-art{position:absolute; inset:0; z-index:1; pointer-events:none; opacity:.5}
+.flow{stroke-dasharray:5 15; animation:flow 5s linear infinite}
+@media (prefers-reduced-motion: reduce){.flow{animation:none !important}}
+
+/* ---------- sections ---------- */
+.sections{position:relative}
+@media(min-width:1180px){
+  .sections::before{
+    content:''; position:absolute; left:-30px; top:0; bottom:140px; width:1px;
+    background:linear-gradient(180deg, var(--copper), var(--line-strong) 10%, var(--line-strong) 86%, transparent);
+  }
+}
+.sec{padding-block:68px; border-top:1px solid var(--line); position:relative}
+.sec:first-child{border-top:0}
+@media(min-width:1180px){
+  .sec::before{
+    content:''; position:absolute; left:-33px; top:68px; width:7px; height:7px; border-radius:50%;
+    background:var(--ground); border:1px solid var(--copper);
+  }
+}
+.mark{
+  display:flex; align-items:center; gap:12px; font-size:.7rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--copper); font-weight:500; margin-bottom:16px;
+}
+.mark::after{content:''; height:1px; flex:1; max-width:160px; background:linear-gradient(90deg,var(--copper),transparent)}
+h2{font-size:clamp(1.85rem,4.2vw,2.7rem); font-weight:800}
+.sec-lede{margin-top:16px; max-width:62ch; color:var(--muted)}
+.sec-head{margin-bottom:40px}
+
+/* services */
+.svc-grid{display:grid; gap:1px; background:var(--line); border:1px solid var(--line)}
+@media(min-width:720px){.svc-grid{grid-template-columns:1fr 1fr}}
+.svc{background:var(--surface); padding:30px 26px; display:grid; gap:12px; align-content:start; transition:background .2s}
+.svc:hover{background:var(--surface-2)}
+.svc-ico{width:26px; height:26px; color:var(--copper)}
+.svc h3{font-size:1.24rem; font-weight:700; font-variation-settings:"wdth" 110}
+.svc p{color:var(--muted); font-size:.96rem}
+.spec{
+  font-size:.73rem; letter-spacing:.04em; color:var(--faint); padding-top:12px;
+  border-top:1px dashed var(--line-strong); margin-top:4px;
+}
+.svc.urgent{background:var(--copper-soft)}
+.svc.urgent:hover{background:var(--copper-soft); filter:brightness(1.02)}
+.svc.urgent .spec{border-color:color-mix(in oklab, var(--copper) 40%, transparent); color:var(--copper)}
+
+/* ---------- locator ---------- */
+.locator{display:grid; gap:1px; background:var(--line); border:1px solid var(--line); box-shadow:var(--shadow)}
+@media(min-width:880px){.locator{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.loc-panel{background:var(--surface); padding:28px 26px; display:grid; gap:18px; align-content:start}
+.loc-input{display:flex; align-items:center; gap:10px; border:1px solid var(--line-strong); padding:0 14px; border-radius:2px; background:var(--surface); transition:border-color .15s}
+.loc-input:focus-within{border-color:var(--copper)}
+.loc-input svg{width:17px; height:17px; color:var(--faint); flex:none}
+.loc-input input{
+  flex:1; min-width:0; border:0; outline:0; background:transparent; color:var(--ink);
+  font:inherit; font-size:1.02rem; padding:13px 0;
+}
+.loc-input input::placeholder{color:var(--faint)}
+.suggest{list-style:none; margin:0; padding:0; display:grid; gap:1px; background:var(--line); border:1px solid var(--line)}
+.suggest:empty{display:none}
+.suggest button{
+  width:100%; text-align:left; background:var(--surface); border:0; cursor:pointer; font:inherit;
+  padding:10px 14px; color:var(--ink); display:flex; justify-content:space-between; gap:12px; transition:background .12s;
+}
+.suggest button:hover{background:var(--copper-soft)}
+.suggest small{color:var(--faint); font-size:.78rem; white-space:nowrap}
+.loc-actions{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:12px}
+.geo-btn{
+  font:inherit; font-size:.86rem; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+  padding:9px 15px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink);
+  border-radius:2px; transition:border-color .15s, color .15s;
+}
+.geo-btn:hover{border-color:var(--copper); color:var(--copper)}
+.geo-btn[disabled]{opacity:.5; cursor:progress}
+.geo-btn svg{width:15px; height:15px; flex:none}
+.geo-note{font-size:.74rem; color:var(--faint); max-width:30ch; line-height:1.4}
+.geo-note.err{color:var(--no)}
+.result{border:1px solid var(--line-strong); border-left:3px solid var(--copper); padding:20px 20px 6px; background:var(--surface-2)}
+.result.no{border-left-color:var(--no)}
+.badge{
+  display:inline-flex; align-items:center; gap:7px; font-size:.68rem; letter-spacing:.16em;
+  text-transform:uppercase; font-weight:600; color:var(--copper); margin-bottom:8px;
+}
+.badge::before{content:''; width:8px; height:8px; border-radius:50%; background:currentColor}
+.result.no .badge{color:var(--no)}
+.result h3{font-size:1.5rem; font-weight:800; font-variation-settings:"wdth" 112}
+.result-verdict{font-size:.95rem; color:var(--muted); margin-top:8px; margin-bottom:16px}
+.rl{display:flex; justify-content:space-between; gap:14px; padding:10px 0; border-top:1px dashed var(--line-strong); font-size:.9rem}
+.rl span:first-child{color:var(--faint); font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; padding-top:3px}
+.rl b{font-weight:500; text-align:right; font-variant-numeric:tabular-nums}
+.rl b.yes{color:var(--ok)} .rl b.nope{color:var(--no)}
+
+.map-wrap{background:var(--surface); padding:22px 20px 18px; display:grid; gap:12px; align-content:start}
+.map{width:100%; height:auto; display:block; max-width:100%}
+.map-legend{display:flex; flex-wrap:wrap; gap:6px 18px; font-size:.72rem; color:var(--muted); letter-spacing:.04em}
+.map-legend i{display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:6px; vertical-align:-1px}
+.map text{paint-order:stroke; stroke:var(--surface); stroke-width:3.5px; stroke-linejoin:round}
+.dot{cursor:pointer}
+.dot circle{transition:r .2s, fill .2s}
+.dot:hover circle.hit{r:8}
+
+/* tarifs */
+.rates{border:1px solid var(--line); background:var(--surface)}
+.rate{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:6px 20px; padding:16px 22px; border-bottom:1px solid var(--line)}
+.rate:last-child{border-bottom:0}
+.rate-name{font-weight:500}
+.rate-name small{display:block; font-weight:400; color:var(--faint); font-size:.8rem; margin-top:2px}
+.rate-val{font-size:1.02rem; font-weight:500; white-space:nowrap; font-variant-numeric:tabular-nums}
+.rate-val.free{color:var(--ok)}
+.rates-foot{padding:16px 22px; background:var(--surface-2); font-size:.82rem; color:var(--muted); border-top:1px solid var(--line)}
+
+/* calculator */
+.calc{display:grid; gap:0; border:1px solid var(--line); background:var(--surface); box-shadow:var(--shadow)}
+@media(min-width:840px){.calc{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}}
+.calc-in{padding:28px 26px; display:grid; gap:24px; align-content:start}
+.calc-out{padding:28px 26px; background:var(--deep); color:var(--on-deep); display:grid; gap:20px; align-content:start}
+.field-label{font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--faint); margin-bottom:12px; display:block}
+.choices{display:grid; gap:8px}
+.choice{display:block; position:relative}
+.choice input{position:absolute; opacity:0; width:0; height:0}
+.choice span{
+  display:flex; justify-content:space-between; align-items:baseline; gap:12px; cursor:pointer;
+  border:1px solid var(--line-strong); padding:12px 14px; border-radius:2px; font-size:.94rem;
+  transition:border-color .15s, background .15s;
+}
+.choice span small{font-size:.74rem; color:var(--faint); white-space:nowrap}
+.choice:hover span{border-color:var(--copper)}
+.choice input:checked + span{border-color:var(--copper); background:var(--copper-soft); font-weight:600}
+.choice input:checked + span small{color:var(--copper)}
+.choice input:focus-visible + span{outline:2px solid var(--copper); outline-offset:2px}
+input[type=range]{width:100%; accent-color:var(--copper)}
+.range-row{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px}
+.range-val{font-size:1.15rem; font-weight:500}
+.range-scale{display:flex; justify-content:space-between; font-size:.68rem; color:var(--faint); margin-top:4px; gap:10px}
+.out-big{font-size:clamp(2.4rem,6vw,3.4rem); font-weight:500; letter-spacing:-.03em; line-height:1; color:var(--copper)}
+.out-big small{font-size:.9rem; color:var(--on-deep-muted); letter-spacing:.06em; margin-left:6px; font-weight:400}
+.out-line{display:flex; justify-content:space-between; gap:14px; font-size:.88rem; padding-block:8px; border-bottom:1px dashed var(--on-deep-line)}
+.out-line span:first-child{color:var(--on-deep-muted)}
+.bars{display:grid; gap:10px}
+.bar-row{display:grid; gap:5px}
+.bar-top{display:flex; justify-content:space-between; font-size:.76rem; letter-spacing:.06em; text-transform:uppercase; color:var(--on-deep-muted)}
+.bar-top b{color:var(--on-deep); font-weight:500}
+.bar-track{height:9px; background:var(--on-deep-line); border-radius:1px; overflow:hidden}
+.bar-fill{height:100%; background:var(--copper); width:0; transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.bar-fill.fix{background:var(--ok)}
+.verdict{font-size:.9rem; color:var(--on-deep); border-left:2px solid var(--copper); padding-left:14px; line-height:1.55}
+
+/* journal */
+.log-wrap{overflow-x:auto; border:1px solid var(--line); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:620px; font-size:.88rem}
+th{
+  text-align:left; font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:var(--faint);
+  font-weight:500; padding:13px 18px; border-bottom:1px solid var(--line-strong); white-space:nowrap;
+}
+td{padding:13px 18px; border-bottom:1px solid var(--line); vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.when{color:var(--faint); white-space:nowrap; font-size:.8rem}
+td.where{font-weight:500; white-space:nowrap}
+td.dur{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; color:var(--muted)}
+.log-foot{font-size:.8rem; color:var(--faint); margin-top:12px}
+
+/* avis */
+.avis{display:grid; gap:14px; margin-top:8px}
+@media(min-width:820px){.avis{grid-template-columns:repeat(3,1fr); gap:24px}}
+.avis-item{border-left:2px solid var(--copper); padding:2px 0 2px 18px}
+.avis-item p{font-size:1rem}
+.avis-who{font-size:.78rem; color:var(--faint); margin-top:7px; letter-spacing:.04em}
+.score{display:flex; align-items:baseline; gap:10px; margin-bottom:18px}
+.score b{font-family:"Archivo",sans-serif; font-size:2.1rem; font-weight:800; letter-spacing:-.02em}
+.score span{font-size:.82rem; color:var(--faint)}
+.trust{display:flex; flex-wrap:wrap; gap:10px 28px; margin-top:36px; padding-top:24px; border-top:1px solid var(--line); font-size:.76rem; color:var(--muted); letter-spacing:.04em}
+.trust div{display:flex; align-items:center; gap:8px}
+.trust svg{width:15px; height:15px; color:var(--ok); flex:none}
+
+/* contact */
+.contact{background:var(--deep); color:var(--on-deep)}
+.contact-in{padding-block:66px; display:grid; gap:40px}
+@media(min-width:860px){.contact-in{grid-template-columns:1.1fr .9fr; gap:56px; align-items:start}}
+.contact h2{color:var(--on-deep)}
+.big-tel{
+  display:inline-block; font-family:"Archivo",sans-serif; font-variation-settings:"wdth" 118;
+  font-size:clamp(1.9rem,5.4vw,2.9rem); font-weight:800; letter-spacing:-.03em;
+  color:var(--copper); text-decoration:none; margin-top:8px;
+}
+.big-tel:hover{text-decoration:underline; text-underline-offset:6px}
+.contact-list{display:grid; gap:0; border-top:1px solid var(--on-deep-line); margin-top:8px}
+.ci{display:flex; justify-content:space-between; gap:16px; padding:13px 0; border-bottom:1px solid var(--on-deep-line); font-size:.92rem}
+.ci span:first-child{color:var(--on-deep-muted); font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; padding-top:3px}
+.ci span:last-child{text-align:right}
+.ci a{text-decoration:none; border-bottom:1px solid var(--on-deep-line)}
+
+footer{padding-block:34px; color:var(--faint); font-size:.8rem; display:grid; gap:10px}
+.disclaimer{border:1px dashed var(--line-strong); padding:11px 14px; border-radius:2px; max-width:64ch}
+</style>
+<!--/A1-->
+</head>
+<body>
+<!--A2-->
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="30" height="30" stroke="#BD6A34" stroke-width="1.2"/>
+        <path d="M8 24V14a4 4 0 0 1 4-4h6" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+        <path d="M18 7h6v6h-6z" stroke="#BD6A34" stroke-width="2"/>
+        <circle cx="8" cy="24" r="2.4" fill="#BD6A34"/>
+      </svg>
+      <span>
+        <span class="brand-name">Plomberie Plantiveau</span>
+        <span class="brand-sub">Robin Plantiveau · Dijon</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#prestations">Prestations</a>
+      <a href="#zone">Ma zone</a>
+      <a href="#fuite">Fuite</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#journal">Journal</a>
+    </nav>
+    <a class="tel-btn" href="tel:+33678410263"><span class="pulse"></span>06 78 41 02 63</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <svg class="pipe-art" viewBox="0 0 1200 520" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#BD6A34" stroke-width="1.1" opacity=".38">
+      <path d="M1200 90 H900 q-14 0-14 14 V300 q0 14 -14 14 H640"/>
+      <path d="M1200 190 H1010 q-14 0-14 14 V430 q0 14 -14 14 H760"/>
+      <path d="M700 0 V150 q0 14 14 14 H1080 q14 0 14 14 V520"/>
+      <circle cx="886" cy="200" r="9"/><circle cx="996" cy="320" r="9"/>
+      <rect x="1074" y="240" width="40" height="18" rx="2"/>
+    </g>
+    <g fill="none" stroke="#BD6A34" stroke-width="2.2" opacity=".85">
+      <path class="flow" d="M1200 90 H900 q-14 0-14 14 V300 q0 14 -14 14 H640"/>
+    </g>
+  </svg>
+
+  <div class="shell hero-in">
+    <div>
+      <span class="eyebrow">Plombier–chauffagiste · Dijon &amp; Côte-d'Or</span>
+      <h1>Votre réseau d'eau,<br>remis <em>d'aplomb</em>.</h1>
+      <p class="lede">
+        Robin Plantiveau, artisan indépendant, neuf ans de chantier avant d'ouvrir son atelier rue Jeannin.
+        <strong>Le diagnostic se fait au téléphone, le prix est annoncé avant que la clé à molette ne sorte du sac.</strong>
+        Dépannage, sanitaire, chauffage — sur Dijon Métropole et sa couronne.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="tel:+33678410263">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h4l2 5-2.5 1.5a12 12 0 0 0 6 6L15 14l5 2v4a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1z"/></svg>
+          Appeler — rappel sous 15 min
+        </a>
+        <a class="btn" href="#zone">Vérifier ma commune</a>
+      </div>
+      <div class="hero-facts mono">
+        <span><b>7j/7</b> urgences</span>
+        <span><b>&lt; 40 min</b> sur la métropole</span>
+        <span><b>49 €</b> déplacement + diagnostic</span>
+        <span><b>4,9/5</b> · 87 avis</span>
+      </div>
+    </div>
+
+    <div class="triage">
+      <div class="triage-eyebrow">En attendant que j'arrive</div>
+      <div class="triage-q">Que se passe-t-il, là, chez vous&nbsp;?</div>
+      <div class="sym" id="sym" role="group" aria-label="Choisissez votre problème"></div>
+      <div>
+        <span class="tri-lvl" id="tri-lvl"></span>
+        <ol class="tri-steps" id="tri-steps"></ol>
+      </div>
+      <div class="tri-foot"><span class="live" id="live"></span><span id="statut"></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="shell">
+<div class="sections">
+
+  <section class="sec" id="prestations">
+    <div class="sec-head">
+      <div class="mark">Prestations</div>
+      <h2>Quatre métiers, un seul interlocuteur</h2>
+      <p class="sec-lede">Pas de sous-traitance, pas de commercial : celui qui répond au téléphone est celui qui vient chez vous.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc urgent">
+        <svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2.7S5.5 10 5.5 14.4a6.5 6.5 0 0 0 13 0C18.5 10 12 2.7 12 2.7z"/><path d="M9.2 14.6a2.8 2.8 0 0 0 2.8 2.8"/></svg>
+        <h3>Urgence &amp; dégât des eaux</h3>
+        <p>Fuite, canalisation percée, refoulement, chauffe-eau qui lâche. On coupe, on sécurise, on répare — et je fournis le constat pour l'assurance.</p>
+        <div class="spec mono">Rappel &lt; 15 min · sur place &lt; 40 min · 7j/7, nuits comprises</div>
+      </article>
+      <article class="svc">
+        <svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="11" width="18" height="6" rx="2"/><path d="M6 11V6a3 3 0 0 1 6 0"/><path d="M7 17v4M17 17v4"/></svg>
+        <h3>Sanitaire &amp; salle de bain</h3>
+        <p>Douche à l'italienne, WC suspendu, meuble vasque, adaptation PMR. Dépose, étanchéité, pose et évacuation — carrelage compris avec mon carreleur.</p>
+        <div class="spec mono">Chantier type : 5 à 8 jours · planning écrit remis au démarrage</div>
+      </article>
+      <article class="svc">
+        <svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3c2.5 3 1 4.5 0 6-1.2 1.8-.6 3.4.8 4.4"/><path d="M6.5 21A5.5 5.5 0 0 1 12 9.8 5.5 5.5 0 0 1 17.5 21z"/></svg>
+        <h3>Chauffage &amp; eau chaude</h3>
+        <p>Entretien et remplacement de chaudière gaz, pompe à chaleur air/eau, ballon thermodynamique, désembouage et équilibrage de radiateurs.</p>
+        <div class="spec mono">RGE QualiPAC · aides MaPrimeRénov' et CEE montées par mes soins</div>
+      </article>
+      <article class="svc">
+        <svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7h7a2 2 0 0 1 2 2v6a2 2 0 0 0 2 2h7"/><rect x="2" y="4" width="4" height="6" rx="1"/><rect x="18" y="14" width="4" height="6" rx="1"/></svg>
+        <h3>Réseaux &amp; rénovation</h3>
+        <p>Remplacement de colonne, reprise de réseau plomb, création d'alimentation, mise aux normes avant vente. Relevé du réseau existant fourni en plan.</p>
+        <div class="spec mono">Cuivre · PER · multicouche à sertir · essai de pression 6 bar / 30 min</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="zone">
+    <div class="sec-head">
+      <div class="mark">Zone d'intervention</div>
+      <h2>Est-ce que je viens chez vous&nbsp;?</h2>
+      <p class="sec-lede">Tapez votre commune ou votre code postal. Vous avez le délai et le prix du déplacement tout de suite — y compris quand la réponse est non.</p>
+    </div>
+
+    <div class="locator">
+      <div class="loc-panel">
+        <div>
+          <label class="field-label" for="q">Votre commune ou code postal</label>
+          <div class="loc-input">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Chenôve, 21300, Gevrey…" aria-describedby="loc-result">
+          </div>
+          <ul class="suggest" id="suggest" role="listbox" aria-label="Communes proposées"></ul>
+          <div class="loc-actions">
+            <button type="button" class="geo-btn" id="geo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="8"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg>
+              Me localiser
+            </button>
+            <span class="geo-note" id="geo-note">Calcul fait dans votre navigateur : votre position n'est envoyée nulle part.</span>
+          </div>
+        </div>
+        <div class="result" id="loc-result" aria-live="polite"></div>
+      </div>
+
+      <figure class="map-wrap" style="margin:0">
+        <svg class="map" id="map" viewBox="0 0 420 430" role="img" aria-label="Carte des communes desservies autour de Dijon, par anneaux de distance">
+          <g id="rings"></g>
+          <g id="dots"></g>
+          <g id="mapfx"></g>
+        </svg>
+        <figcaption class="map-legend mono">
+          <span><i style="background:var(--copper)"></i>Atelier — Dijon</span>
+          <span><i style="background:var(--ok)"></i>Zone 1 · &lt; 12 km</span>
+          <span><i style="background:var(--faint)"></i>Zone 2 · &lt; 25 km</span>
+          <span><i style="background:var(--line-strong)"></i>Zone 3 · &lt; 45 km</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec" id="fuite">
+    <div class="sec-head">
+      <div class="mark">Calculateur</div>
+      <h2>Ce que votre fuite coûte pendant que vous lisez ça</h2>
+      <p class="sec-lede">Trois fuites domestiques courantes, le prix réel de l'eau perdue sur douze mois, et le coût de la réparation en face. Sans rien vous vendre.</p>
+    </div>
+
+    <div class="calc">
+      <div class="calc-in">
+        <div>
+          <span class="field-label">Type de fuite</span>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="leak" id="leak-goutte" value="goutte" checked>
+              <span>Robinet qui goutte <small>≈ 4 L/jour</small></span></label>
+            <label class="choice"><input type="radio" name="leak" id="leak-filet" value="filet">
+              <span>Filet d'eau continu <small>≈ 16 L/jour</small></span></label>
+            <label class="choice"><input type="radio" name="leak" id="leak-chasse" value="chasse">
+              <span>Chasse d'eau qui fuit <small>≈ 600 L/jour</small></span></label>
+          </div>
+        </div>
+        <div>
+          <div class="range-row">
+            <label class="field-label" for="prix" style="margin:0">Prix de l'eau</label>
+            <span class="range-val mono" id="prix-val">4,15 €/m³</span>
+          </div>
+          <input type="range" id="prix" min="2.5" max="6.5" step="0.05" value="4.15">
+          <div class="range-scale mono"><span>2,50 €</span><span>Dijon : 4,15 €</span><span>6,50 €</span></div>
+        </div>
+        <p style="font-size:.83rem; color:var(--muted)">
+          Eau potable + assainissement, TTC. Une chasse d'eau qui fuit ne s'entend pas toujours :
+          posez une feuille de papier toilette contre la paroi de la cuvette le soir, regardez-la au réveil.
+        </p>
+      </div>
+
+      <div class="calc-out">
+        <div class="out-big mono"><span id="out-euros">6</span> €<small>PERDUS PAR AN</small></div>
+        <div>
+          <div class="out-line"><span>Eau gaspillée</span><b class="mono" id="out-litres">1 460 L</b></div>
+          <div class="out-line"><span>Soit l'équivalent de</span><b class="mono" id="out-douches">24 douches</b></div>
+          <div class="out-line"><span>Réparation</span><b class="mono" id="out-fix">Changement de clapet · 30 min</b></div>
+        </div>
+        <div class="bars">
+          <div class="bar-row">
+            <div class="bar-top"><span>Fuite · 12 mois</span><b class="mono" id="bar-leak-val">6 €</b></div>
+            <div class="bar-track"><div class="bar-fill" id="bar-leak"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-top"><span>Réparation</span><b class="mono" id="bar-fix-val">80 €</b></div>
+            <div class="bar-track"><div class="bar-fill fix" id="bar-fix"></div></div>
+          </div>
+        </div>
+        <p class="verdict" id="verdict">Ici l'enjeu n'est pas la facture d'eau : c'est le calcaire qui creuse l'émail et le joint qui finit par lâcher d'un coup.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="tarifs">
+    <div class="sec-head">
+      <div class="mark">Tarifs</div>
+      <h2>Les prix sont affichés. Ils ne bougent pas sur place.</h2>
+      <p class="sec-lede">Tout ce qui sort de cette grille passe par un devis signé avant le début des travaux. Aucune exception, même en urgence.</p>
+    </div>
+    <div class="rates">
+      <div class="rate"><div class="rate-name">Déplacement + diagnostic<small>Zone 1 · déduit si travaux le jour même — 69 € en zone 2, 89 € en zone 3</small></div><div class="rate-val mono">49 € TTC</div></div>
+      <div class="rate"><div class="rate-name">Main-d'œuvre<small>À l'heure entamée, fournitures courantes incluses</small></div><div class="rate-val mono">62 € / h</div></div>
+      <div class="rate"><div class="rate-name">Majoration soir, week-end, fériés<small>19 h – 8 h, samedi après 13 h, dimanche</small></div><div class="rate-val mono">+ 50 %</div></div>
+      <div class="rate"><div class="rate-name">Recherche de fuite non destructive<small>Caméra thermique, gaz traceur, corrélateur acoustique</small></div><div class="rate-val mono">dès 190 € TTC</div></div>
+      <div class="rate"><div class="rate-name">Désembouage d'un circuit de chauffage<small>Jusqu'à 12 radiateurs, produit et rinçage compris</small></div><div class="rate-val mono">dès 590 € TTC</div></div>
+      <div class="rate"><div class="rate-name">Devis détaillé<small>Remis sous 24 h, valable 2 mois</small></div><div class="rate-val mono free">Gratuit</div></div>
+      <div class="rates-foot">TVA à 10 % sur la rénovation des logements de plus de deux ans, 5,5 % sur les travaux d'amélioration énergétique. Paiement à la fin de l'intervention, carte ou virement.</div>
+    </div>
+  </section>
+
+  <section class="sec" id="journal">
+    <div class="sec-head">
+      <div class="mark">Journal d'intervention</div>
+      <h2>Les dix derniers jours</h2>
+      <p class="sec-lede">Extrait brut du carnet de chantier, mis à jour chaque vendredi. C'est le meilleur aperçu du travail réel.</p>
+    </div>
+    <div class="log-wrap">
+      <table class="mono">
+        <thead><tr><th>Horodatage</th><th>Commune</th><th>Intervention</th><th style="text-align:right">Durée</th></tr></thead>
+        <tbody>
+          <tr><td class="when">18/09 · 07:12</td><td class="where">Chenôve</td><td>Fuite sous évier — raccord multicouche repris et serti</td><td class="dur">45 min</td></tr>
+          <tr><td class="when">17/09 · 21:40</td><td class="where">Dijon 21000</td><td>Chasse d'eau — mécanisme remplacé, joint de cuve changé</td><td class="dur">35 min</td></tr>
+          <tr><td class="when">16/09 · 14:05</td><td class="where">Talant</td><td>Chauffe-eau 200 L — groupe de sécurité + vase d'expansion sanitaire</td><td class="dur">1 h 30</td></tr>
+          <tr><td class="when">15/09 · 08:50</td><td class="where">Marsannay-la-Côte</td><td>Désembouage et purge de 11 radiateurs, équilibrage des tés</td><td class="dur">4 h 10</td></tr>
+          <tr><td class="when">12/09 · 23:18</td><td class="where">Fontaine-lès-Dijon</td><td>Dégât des eaux — colonne coupée, soudure cuivre, constat assurance</td><td class="dur">2 h 10</td></tr>
+          <tr><td class="when">11/09 · 09:30</td><td class="where">Quetigny</td><td>Recherche de fuite au gaz traceur sous dalle, localisée en 3 h</td><td class="dur">3 h 00</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="log-foot">Extrait de 6 lignes sur 41 interventions enregistrées depuis le 1er septembre.</p>
+  </section>
+
+  <section class="sec" id="avis">
+    <div class="sec-head">
+      <div class="mark">Avis</div>
+      <div class="score"><b>4,9</b><span>sur 5 · 87 avis Google · 12 derniers mois</span></div>
+    </div>
+    <div class="avis">
+      <div class="avis-item">
+        <p>« Arrivé à 22 h un dimanche, fuite arrêtée en vingt minutes. Il explique ce qu'il fait au fur et à mesure, ça change tout. »</p>
+        <div class="avis-who mono">Émilie D. — Chenôve · août 2026</div>
+      </div>
+      <div class="avis-item">
+        <p>« Devis clair, pas un euro de plus à la fin, salle de bain refaite en six jours et le chantier nettoyé chaque soir. »</p>
+        <div class="avis-who mono">Karim B. — Dijon · juillet 2026</div>
+      </div>
+      <div class="avis-item">
+        <p>« Il a trouvé et réparé ce que deux entreprises avaient "diagnostiqué" sans rien voir. Facture honnête en plus. »</p>
+        <div class="avis-who mono">Jean-Pierre M. — Quetigny · juin 2026</div>
+      </div>
+    </div>
+    <div class="trust mono">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Assurance décennale AXA n° 1093 4472</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Qualibat 5312</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>RGE QualiPAC</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>SIRET 941 208 337 00019</div>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="shell contact-in">
+    <div>
+      <div class="mark">Contact</div>
+      <h2>Décrivez-moi le problème.<br>Je vous dis quoi faire tout de suite.</h2>
+      <p class="lede" style="margin-top:18px">Même si l'intervention peut attendre — ou si elle ne me concerne pas. Un appel de trois minutes évite souvent un déplacement inutile.</p>
+      <a class="big-tel" href="tel:+33678410263">06 78 41 02 63</a>
+      <p style="color:var(--on-deep-muted); font-size:.85rem; margin-top:6px">Urgences : décroché ou rappelé sous 15 minutes, 24 h/24.</p>
+    </div>
+    <div class="contact-list">
+      <div class="ci"><span>Atelier</span><span>14 rue Jeannin<br>21000 Dijon</span></div>
+      <div class="ci"><span>E-mail</span><span><a href="mailto:contact@plomberie-plantiveau.fr">contact@plomberie-plantiveau.fr</a></span></div>
+      <div class="ci"><span>Horaires</span><span>Lun–Ven 7 h 30 – 19 h<br>Sam 8 h – 13 h</span></div>
+      <div class="ci"><span>Urgences</span><span>7j/7 · 24 h/24</span></div>
+      <div class="ci"><span>Devis</span><span>Gratuit, sous 24 h</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="shell">
+  <footer>
+    <div>© 2026 Plomberie Plantiveau — Robin Plantiveau, artisan plombier-chauffagiste inscrit à la CMA Bourgogne-Franche-Comté.</div>
+    <div class="disclaimer">Maquette : le nom est réel, mais les coordonnées, les tarifs, les avis et les numéros d'agrément sont encore fictifs.</div>
+  </footer>
+</div>
+
+</main>
+
+<script>
+(function(){
+  /* ---------------- calculateur de fuite ---------------- */
+  var LEAKS = {
+    goutte:{lpd:4,   fix:"Changement de clapet ou de cartouche", dur:"30 min", prix:80},
+    filet: {lpd:16,  fix:"Remplacement du mitigeur",             dur:"1 h",    prix:111},
+    chasse:{lpd:600, fix:"Mécanisme + joint de cuve",            dur:"1 h",    prix:111}
+  };
+  var nf0 = new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0});
+  var nf2 = new Intl.NumberFormat('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2});
+  var nf1 = new Intl.NumberFormat('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1});
+  var prix = document.getElementById('prix');
+  var C = {
+    prixVal:document.getElementById('prix-val'), euros:document.getElementById('out-euros'),
+    litres:document.getElementById('out-litres'), douches:document.getElementById('out-douches'),
+    fix:document.getElementById('out-fix'), barLeak:document.getElementById('bar-leak'),
+    barFix:document.getElementById('bar-fix'), barLeakV:document.getElementById('bar-leak-val'),
+    barFixV:document.getElementById('bar-fix-val'), verdict:document.getElementById('verdict')
+  };
+  function renderCalc(){
+    var checked = document.querySelector('input[name="leak"]:checked');
+    var leak = LEAKS[checked ? checked.value : 'goutte'];
+    var pm3 = parseFloat(prix.value);
+    var litres = leak.lpd * 365, cout = (litres/1000)*pm3, max = Math.max(cout, leak.prix);
+    C.prixVal.textContent = nf2.format(pm3) + ' €/m³';
+    C.euros.textContent   = nf0.format(cout);
+    C.litres.textContent  = nf0.format(litres) + ' L';
+    C.douches.textContent = nf0.format(litres/60) + ' douches';
+    C.fix.textContent     = leak.fix + ' · ' + leak.dur;
+    C.barLeakV.textContent = nf0.format(cout) + ' €';
+    C.barFixV.textContent  = nf0.format(leak.prix) + ' €';
+    C.barLeak.style.width  = (cout/max*100) + '%';
+    C.barFix.style.width   = (leak.prix/max*100) + '%';
+    if (cout > leak.prix) {
+      var mois = Math.max(1, Math.round(leak.prix / (cout/12)));
+      C.verdict.textContent = 'La réparation est remboursée par l’économie d’eau en ' + mois + ' mois. Tout ce qui suit est du gagné.';
+    } else {
+      C.verdict.textContent = 'Ici l’enjeu n’est pas la facture d’eau : c’est le calcaire qui creuse l’émail, et un joint fatigué qui finit toujours par lâcher d’un coup.';
+    }
+  }
+  document.querySelectorAll('input[name="leak"]').forEach(function(r){ r.addEventListener('change', renderCalc); });
+  prix.addEventListener('input', renderCalc);
+  renderCalc();
+
+  /* ---------------- vérificateur de zone ---------------- */
+  var ATELIER = {lat:47.3220, lon:5.0415};
+  var COM = [
+    ["Dijon","21000",47.322,5.041],["Chenôve","21300",47.290,5.010],["Talant","21240",47.333,5.001],
+    ["Fontaine-lès-Dijon","21121",47.345,5.018],["Plombières-lès-Dijon","21370",47.330,4.970],
+    ["Daix","21121",47.355,4.995],["Ahuy","21121",47.360,5.023],["Saint-Apollinaire","21850",47.335,5.085],
+    ["Quetigny","21800",47.320,5.104],["Chevigny-Saint-Sauveur","21800",47.302,5.131],
+    ["Sennecey-lès-Dijon","21800",47.300,5.100],["Longvic","21600",47.288,5.058],["Ouges","21600",47.265,5.070],
+    ["Marsannay-la-Côte","21160",47.266,5.013],["Perrigny-lès-Dijon","21160",47.263,5.026],
+    ["Neuilly-Crimolois","21800",47.295,5.135],["Bretenière","21110",47.245,5.100],
+    ["Corcelles-les-Monts","21160",47.302,4.955],["Hauteville-lès-Dijon","21121",47.360,5.000],
+    ["Magny-sur-Tille","21110",47.297,5.170],["Arc-sur-Tille","21560",47.348,5.160],
+    ["Velars-sur-Ouche","21370",47.315,4.913],["Messigny-et-Vantoux","21380",47.400,5.053],
+    ["Saint-Julien","21490",47.390,5.130],["Fauverney","21110",47.270,5.163],
+    ["Gevrey-Chambertin","21220",47.225,4.972],["Genlis","21110",47.240,5.223],
+    ["Is-sur-Tille","21120",47.520,5.108],["Nuits-Saint-Georges","21700",47.135,4.951],
+    ["Sombernon","21540",47.290,4.712],["Mirebeau-sur-Bèze","21310",47.397,5.318],
+    ["Auxonne","21130",47.193,5.388],["Selongey","21260",47.588,5.183],
+    ["Pontailler-sur-Saône","21270",47.305,5.415],["Beaune","21200",47.024,4.840],["Seurre","21250",47.003,5.147]
+  ].map(function(c){
+    var dx = (c[3]-ATELIER.lon)*75.4, dy = (c[2]-ATELIER.lat)*111.32;
+    var d = Math.sqrt(dx*dx+dy*dy);
+    return {nom:c[0], cp:c[1], dx:dx, dy:dy, km:d, zone:(d<=12?1:d<=25?2:3)};
+  });
+
+  var ZONES = {
+    1:{nom:"Zone 1 · Dijon Métropole", delai:"Sur place en moins de 40 min", frais:"49 € TTC", nuit:true,
+       phrase:"Oui, c'est mon secteur quotidien. J'y passe tous les jours."},
+    2:{nom:"Zone 2 · Couronne dijonnaise", delai:"Sur place en 1 h 15 maximum", frais:"69 € TTC", nuit:true,
+       phrase:"Oui, urgences comprises. Le déplacement est un peu plus élevé, c'est la seule différence."},
+    3:{nom:"Zone 3 · Côte-d'Or élargie", delai:"Sur rendez-vous, sous 72 h", frais:"89 € TTC", nuit:false,
+       phrase:"Oui, mais uniquement en chantier programmé : je ne peux pas garantir une urgence de nuit à cette distance."}
+  };
+
+  var norm = function(s){ return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]/g,''); };
+  COM.forEach(function(c){ c.key = norm(c.nom); });
+
+  var qEl = document.getElementById('q');
+  var sugEl = document.getElementById('suggest');
+  var resEl = document.getElementById('loc-result');
+
+  function showResult(c){
+    if (!c) {
+      resEl.className = 'result no';
+      resEl.innerHTML = '<div class="badge">Hors secteur</div>' +
+        '<h3>Je ne trouve pas cette commune</h3>' +
+        '<p class="result-verdict">Au-delà de 45 km de Dijon je ne prends plus de chantier : je tiens à pouvoir repasser pendant toute la durée de la garantie. Appelez quand même, je connais des confrères sérieux dans le département.</p>' +
+        '<div class="rl"><span>Ce que je peux faire</span><b>Vous orienter, par téléphone</b></div>';
+      return;
+    }
+    var z = ZONES[c.zone];
+    resEl.className = 'result';
+    resEl.innerHTML =
+      '<div class="badge">' + z.nom + '</div>' +
+      '<h3>' + c.nom + '</h3>' +
+      '<p class="result-verdict">' + z.phrase + '</p>' +
+      (c.pres ? '<div class="rl"><span>Commune la plus proche</span><b>' + c.pres + '</b></div>' : '') +
+      '<div class="rl"><span>Distance atelier</span><b class="mono">' + nf1.format(c.km) + ' km</b></div>' +
+      '<div class="rl"><span>Délai d’intervention</span><b>' + z.delai + '</b></div>' +
+      '<div class="rl"><span>Déplacement + diagnostic</span><b class="mono">' + z.frais + '</b></div>' +
+      '<div class="rl"><span>Urgences de nuit</span><b class="' + (z.nuit?'yes':'nope') + '">' + (z.nuit ? 'Oui, 24 h/24' : 'Non, journée uniquement') + '</b></div>';
+    drawMap(c);
+  }
+
+  function select(c){ qEl.value = c.nom; sugEl.innerHTML = ''; showResult(c); }
+
+  function search(){
+    var raw = qEl.value.trim();
+    sugEl.innerHTML = '';
+    if (!raw) { showResult(COM[0]); return; }
+    var k = norm(raw);
+    var hits = COM.filter(function(c){ return c.key.indexOf(k) === 0 || c.cp.indexOf(raw) === 0; });
+    if (!hits.length) hits = COM.filter(function(c){ return c.key.indexOf(k) > -1; });
+    if (!hits.length) { showResult(null); return; }
+    if (hits.length === 1) { showResult(hits[0]); return; }
+    showResult(hits[0]);
+    hits.slice(0,6).forEach(function(c){
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.innerHTML = '<span>' + c.nom + '</span><small class="mono">' + c.cp + ' · ' + nf1.format(c.km) + ' km</small>';
+      b.addEventListener('click', function(){ select(c); });
+      li.appendChild(b); sugEl.appendChild(li);
+    });
+  }
+  qEl.addEventListener('input', search);
+  qEl.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') { e.preventDefault(); var f = sugEl.querySelector('button'); if (f) f.click(); }
+  });
+
+  /* ------- carte radar ------- */
+  var CX = 210, CY = 205, MAXR = 178, MAXKM = 46;
+  var ringsG = document.getElementById('rings'), dotsG = document.getElementById('dots'), fxG = document.getElementById('mapfx');
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(n, a){ var e = document.createElementNS(NS,n); for (var k in a) e.setAttribute(k,a[k]); return e; }
+  var toR = function(km){ return km / MAXKM * MAXR; };
+
+  [[45,'Zone 3','4 4'],[25,'Zone 2','4 4'],[12,'Zone 1','']].forEach(function(r){
+    ringsG.appendChild(el('circle',{cx:CX, cy:CY, r:toR(r[0]), fill:'none', stroke:'var(--line-strong)', 'stroke-width':1, 'stroke-dasharray':r[2]}));
+    var t = el('text',{x:CX+4, y:CY-toR(r[0])+13, fill:'var(--faint)', 'font-size':9, 'letter-spacing':1.4});
+    t.setAttribute('class','mono'); t.textContent = r[1].toUpperCase() + ' — ' + r[0] + ' KM';
+    ringsG.appendChild(t);
+  });
+  ringsG.appendChild(el('line',{x1:CX, y1:CY-MAXR-6, x2:CX, y2:CY+MAXR+6, stroke:'var(--line)', 'stroke-width':1}));
+  ringsG.appendChild(el('line',{x1:CX-MAXR-6, y1:CY, x2:CX+MAXR+6, y2:CY, stroke:'var(--line)', 'stroke-width':1}));
+  var n = el('text',{x:CX, y:CY-MAXR-14, fill:'var(--faint)','font-size':10,'text-anchor':'middle','letter-spacing':1.5});
+  n.setAttribute('class','mono'); n.textContent = 'N'; ringsG.appendChild(n);
+
+  var ZCOL = {1:'#2F7A5B', 2:'var(--faint)', 3:'var(--line-strong)'};
+  COM.forEach(function(c){
+    if (c.km > MAXKM) return;
+    c.x = CX + toR(c.dx); c.y = CY - toR(c.dy);
+    var g = el('g',{class:'dot', tabindex:'0', role:'button'});
+    g.appendChild(el('circle',{class:'hit', cx:c.x, cy:c.y, r:9, fill:'transparent'}));
+    var d = el('circle',{cx:c.x, cy:c.y, r:c.km < 0.5 ? 5 : 3.2, fill:c.km < 0.5 ? 'var(--copper)' : ZCOL[c.zone]});
+    g.appendChild(d);
+    var ttl = el('title'); ttl.textContent = c.nom + ' · ' + nf1.format(c.km) + ' km';
+    g.appendChild(ttl);
+    g.addEventListener('click', function(){ select(c); });
+    g.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(c); } });
+    dotsG.appendChild(g);
+  });
+
+  function drawMap(c){
+    fxG.innerHTML = '';
+    if (!c || c.x === undefined) return;
+    fxG.appendChild(el('line',{x1:CX, y1:CY, x2:c.x, y2:c.y, stroke:'var(--copper)', 'stroke-width':1, 'stroke-dasharray':'3 4'}));
+    fxG.appendChild(el('circle',{cx:c.x, cy:c.y, r:8, fill:'none', stroke:'var(--copper)', 'stroke-width':1.6}));
+    fxG.appendChild(el('circle',{cx:c.x, cy:c.y, r:3.2, fill:'var(--copper)'}));
+    if (c.gps) {
+      fxG.appendChild(el('line',{x1:c.x-9, y1:c.y, x2:c.x+9, y2:c.y, stroke:'var(--copper)', 'stroke-width':1.4}));
+      fxG.appendChild(el('line',{x1:c.x, y1:c.y-9, x2:c.x, y2:c.y+9, stroke:'var(--copper)', 'stroke-width':1.4}));
+    }
+    var anchor = c.x > CX + 60 ? 'end' : 'start';
+    var lx = anchor === 'end' ? c.x - 13 : c.x + 13;
+    var ly = c.y + 4;
+    if (c.km < 0.5) { anchor = 'middle'; lx = CX; ly = CY + 30; }
+    var t = el('text',{x:lx, y:ly, fill:'var(--ink)', 'font-size':11, 'text-anchor':anchor, 'font-weight':600});
+    t.setAttribute('class','mono'); t.textContent = c.nom;
+    fxG.appendChild(t);
+  }
+
+  showResult(COM[0]);
+
+  /* ---------------- géolocalisation navigateur ---------------- */
+  var geoBtn = document.getElementById('geo'), geoNote = document.getElementById('geo-note');
+  var GEO_ERR = {1:"Autorisation refusée. Tapez votre commune juste au-dessus, ça marche aussi bien.",
+                 2:"Position introuvable — pas de signal. Tapez votre commune à la place.",
+                 3:"Ça prend trop de temps. Tapez votre commune à la place."};
+
+  if (!('geolocation' in navigator)) {
+    geoBtn.hidden = true;
+  } else {
+    geoBtn.addEventListener('click', function(){
+      geoBtn.disabled = true;
+      geoBtn.lastChild.textContent = ' Localisation…';
+      geoNote.className = 'geo-note';
+      geoNote.textContent = 'Votre navigateur va vous demander l\u2019autorisation.';
+      navigator.geolocation.getCurrentPosition(function(pos){
+        reset();
+        var lat = pos.coords.latitude, lon = pos.coords.longitude;
+        var dx = (lon - ATELIER.lon) * 75.4, dy = (lat - ATELIER.lat) * 111.32;
+        var km = Math.sqrt(dx*dx + dy*dy);
+        var near = null, best = Infinity;
+        COM.forEach(function(c){
+          var d = Math.sqrt(Math.pow(c.dx-dx,2) + Math.pow(c.dy-dy,2));
+          if (d < best) { best = d; near = c; }
+        });
+        geoNote.textContent = 'Position précise à ' + nf0.format(pos.coords.accuracy) + ' m près. Elle n\u2019a quitté ni votre téléphone ni votre ordinateur.';
+        qEl.value = ''; sugEl.innerHTML = '';
+        if (km > MAXKM) {
+          resEl.className = 'result no';
+          resEl.innerHTML = '<div class="badge">Hors secteur</div>' +
+            '<h3>Vous êtes à ' + nf0.format(km) + ' km de Dijon</h3>' +
+            '<p class="result-verdict">Trop loin pour que je m\u2019engage : je tiens à pouvoir repasser pendant toute la durée de la garantie décennale. Appelez quand même, je connais des confrères sérieux un peu partout dans le département.</p>' +
+            '<div class="rl"><span>Ce que je peux faire</span><b>Vous orienter, par téléphone</b></div>';
+          fxG.innerHTML = '';
+          return;
+        }
+        var me = {nom:'Votre position', km:km, dx:dx, dy:dy, zone:(km<=12?1:km<=25?2:3),
+                  pres:near.nom + ' (' + near.cp + ')', gps:true,
+                  x:CX + toR(dx), y:CY - toR(dy)};
+        showResult(me);
+      }, function(err){
+        reset();
+        geoNote.className = 'geo-note err';
+        geoNote.textContent = GEO_ERR[err.code] || "La localisation n\u2019a pas fonctionné. Tapez votre commune à la place.";
+        qEl.focus();
+      }, {enableHighAccuracy:true, timeout:10000, maximumAge:60000});
+    });
+  }
+  function reset(){ geoBtn.disabled = false; geoBtn.lastChild.textContent = ' Me localiser'; }
+
+  /* ---------------- divers ---------------- */
+  /* ---------------- triage : premiers gestes ---------------- */
+  var SYM = [
+    {id:'evier', chip:"Ça fuit sous l'évier", lvl:2, steps:[
+      "Fermez le robinet d'arrêt sous le meuble, la petite molette sur le flexible. S'il est grippé, ne forcez pas : coupez au compteur.",
+      "Videz le siphon dans une bassine et essuyez tout. Vous saurez en cinq minutes si ça coule encore, et d'où.",
+      "Photographiez le raccord mouillé et envoyez-moi la photo : j'arrive avec la bonne pièce du premier coup."
+    ]},
+    {id:'plafond', chip:"Fuite au plafond ou dans un mur", lvl:3, steps:[
+      "Coupez l'eau au compteur général et l'électricité de la pièce au disjoncteur. De l'eau dans un plafonnier, c'est un risque réel.",
+      "Si le plafond fait une cloque, percez un petit trou au point le plus bas avec un tournevis, au-dessus d'un seau. Ça évite qu'il tombe d'un bloc.",
+      "Prévenez le voisin du dessus, prenez des photos datées : je remplis le constat avec vous à mon passage."
+    ]},
+    {id:'bouche', chip:"WC ou évier bouché", lvl:1, steps:[
+      "Pas de déboucheur chimique. Ça attaque les joints et le PVC, et ça me brûle les mains quand j'ouvre la canalisation derrière.",
+      "Ventouse, en bouchant le trop-plein ou le deuxième bac avec un chiffon mouillé — sinon vous pompez de l'air.",
+      "Si l'eau remonte ailleurs dans le logement, arrêtez tout : c'est la canalisation principale, il faut une machine."
+    ]},
+    {id:'ecs', chip:"Plus d'eau chaude", lvl:1, steps:[
+      "Vérifiez le disjoncteur du chauffe-eau et le contacteur jour/nuit : il doit être sur I ou sur Auto, pas sur 0.",
+      "Sur un cumulus, si le groupe de sécurité coule en continu et pas seulement pendant la chauffe, c'est souvent lui.",
+      "Sur une chaudière, notez le code d'erreur affiché avant de la réarmer. Il me fait gagner vingt minutes de diagnostic."
+    ]},
+    {id:'chauffage', chip:"Radiateurs froids", lvl:1, steps:[
+      "Regardez le manomètre de la chaudière : sous 1 bar elle se met en sécurité et ne chauffe plus.",
+      "Remplissez doucement avec la vanne de remplissage jusqu'à 1,5 bar, puis purgez les radiateurs du bas vers le haut de la maison.",
+      "Si un radiateur reste froid en bas et chaud en haut, ce n'est pas de l'air, c'est de la boue : il faut un désembouage."
+    ]}
+  ];
+  var LVL = {3:['lvl-3',"Urgence — appelez tout de suite"], 2:['lvl-2',"À traiter dans la journée"], 1:['lvl-1',"Pas d'urgence, ça peut attendre demain"]};
+  var symEl = document.getElementById('sym'), lvlEl = document.getElementById('tri-lvl'), stepsEl = document.getElementById('tri-steps');
+
+  function pickSym(sym){
+    symEl.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.id === sym.id)); });
+    lvlEl.className = 'tri-lvl ' + LVL[sym.lvl][0];
+    lvlEl.textContent = LVL[sym.lvl][1];
+    stepsEl.innerHTML = '';
+    sym.steps.forEach(function(t){ var li = document.createElement('li'); li.textContent = t; stepsEl.appendChild(li); });
+  }
+  SYM.forEach(function(sym){
+    var b = document.createElement('button');
+    b.type = 'button'; b.dataset.id = sym.id; b.textContent = sym.chip; b.setAttribute('aria-pressed','false');
+    b.addEventListener('click', function(){ pickSym(sym); });
+    symEl.appendChild(b);
+  });
+  pickSym(SYM[0]);
+
+  /* ---------------- statut d'ouverture, à l'heure réelle ---------------- */
+  (function statut(){
+    var d = new Date(), h = d.getHours() + d.getMinutes()/60, j = d.getDay();
+    var ouvert = (j >= 1 && j <= 5 && h >= 7.5 && h < 19) || (j === 6 && h >= 8 && h < 13);
+    var hh = ('0'+d.getHours()).slice(-2) + ':' + ('0'+d.getMinutes()).slice(-2);
+    document.getElementById('live').className = 'live' + (ouvert ? '' : ' oncall');
+    document.getElementById('statut').textContent = ouvert
+      ? 'Atelier ouvert — il est ' + hh + ', je décroche en direct.'
+      : 'Astreinte urgences — il est ' + hh + ', la sonnerie passe quand même.';
+    setTimeout(statut, 30000);
+  })();
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+})();
+</script>
+<!--/A2-->
+</body>
+</html>
