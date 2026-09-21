@@ -259,6 +259,41 @@ h2{font-size:clamp(1.75rem,3.8vw,2.5rem); font-weight:800}
 .communes{margin-top:18px; font-size:.86rem; color:var(--muted); line-height:1.75}
 .communes b{color:var(--ink); font-weight:500}
 
+/* ---------- carrousel ---------- */
+.carousel{position:relative; border:1px solid var(--line); background:var(--surface); box-shadow:var(--shadow)}
+.track{
+  display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth;
+  scrollbar-width:none; -ms-overflow-style:none;
+}
+.track::-webkit-scrollbar{display:none}
+@media (prefers-reduced-motion: reduce){.track{scroll-behavior:auto}}
+.slide{margin:0; flex:0 0 100%; scroll-snap-align:center; display:grid}
+.slide img{
+  width:100%; height:clamp(230px, 50vw, 500px); object-fit:cover; display:block;
+  background:var(--surface-2);
+}
+.slide figcaption{padding:16px 20px; border-top:1px solid var(--line); display:grid; gap:3px}
+.slide figcaption b{font-weight:600; font-size:1rem}
+.slide figcaption small{color:var(--faint); font-size:.81rem}
+.car-nav{
+  position:absolute; top:clamp(115px, 25vw, 250px); transform:translateY(-50%);
+  width:42px; height:42px; display:grid; place-items:center; cursor:pointer;
+  border:0; border-radius:50%; color:var(--copper-ink);
+  background:color-mix(in oklab, var(--deep) 72%, transparent);
+  backdrop-filter:blur(4px); transition:background .15s, opacity .15s;
+}
+.car-nav:hover{background:var(--copper)}
+.car-nav[disabled]{opacity:.28; cursor:default}
+.car-nav svg{width:19px; height:19px}
+.car-prev{left:12px} .car-next{right:12px}
+.car-dots{display:flex; justify-content:center; gap:8px; padding:0 0 16px}
+.car-dots button{
+  width:8px; height:8px; padding:0; border-radius:50%; cursor:pointer;
+  border:1px solid var(--line-strong); background:transparent; transition:background .15s, border-color .15s;
+}
+.car-dots button[aria-current="true"]{background:var(--copper); border-color:var(--copper)}
+.car-note{margin-top:14px; font-size:.79rem; color:var(--faint); line-height:1.5}
+
 /* ---------- prestations ---------- */
 .svc-grid{display:grid; gap:1px; background:var(--line); border:1px solid var(--line)}
 @media(min-width:720px){.svc-grid{grid-template-columns:1fr 1fr}}
@@ -340,6 +375,7 @@ footer{padding-block:30px; color:var(--faint); font-size:.79rem; display:grid; g
       </span>
     </a>
     <nav class="nav">
+      <a href="#realisations">Réalisations</a>
       <a href="#zone">Ma zone</a>
       <a href="#tarifs">Tarifs</a>
       <a href="#contact">Contact</a>
@@ -436,6 +472,45 @@ footer{padding-block:30px; color:var(--faint); font-size:.79rem; display:grid; g
       <b>Jusqu'à 25 km :</b> Gevrey-Chambertin, Genlis, Arc-sur-Tille, Nuits-Saint-Georges, Is-sur-Tille,
       Velars-sur-Ouche, Messigny, Saint-Julien, Fauverney, Magny-sur-Tille, Bretenière.
     </p>
+  </section>
+
+  <section class="sec" id="realisations">
+    <div class="sec-head">
+      <div class="mark">Réalisations</div>
+      <h2>Des chantiers finis, pas des promesses</h2>
+      <p class="sec-lede">Chaque photo est prise le dernier jour, une fois le chantier nettoyé.</p>
+    </div>
+
+    <div class="carousel" role="group" aria-roledescription="carrousel" aria-label="Chantiers réalisés">
+      <div class="track" id="track" tabindex="0">
+        <figure class="slide" aria-label="1 sur 3">
+          <img src="photos/douche-italienne-double-vasque.jpg" width="1400" height="1050"
+               alt="Salle de bain en marbre avec douche à l'italienne vitrée, double vasque sur meuble bleu et baignoire.">
+          <figcaption><b>Douche à l'italienne, double vasque et baignoire</b>
+            <small>Rénovation complète en 8 jours — Dijon centre, janvier 2026</small></figcaption>
+        </figure>
+        <figure class="slide" aria-label="2 sur 3">
+          <img src="photos/salle-de-bain-compacte.jpg" width="1400" height="1050" loading="lazy"
+               alt="Petite salle de bain claire avec cabine de douche d'angle, WC suspendu et sèche-serviettes.">
+          <figcaption><b>Salle de bain de 4 m², cabine d'angle et WC suspendu</b>
+            <small>Appartement des années 70 — Talant, mars 2026</small></figcaption>
+        </figure>
+        <figure class="slide" aria-label="3 sur 3">
+          <img src="photos/wc-suspendu-marbre.jpg" width="1400" height="1050" loading="lazy"
+               alt="Salle d'eau en marbre beige avec cabine de douche vitrée, WC suspendu et plaque de commande encastrée.">
+          <figcaption><b>Salle d'eau parentale, WC suspendu sur bâti-support</b>
+            <small>Maison neuve — Marsannay-la-Côte, novembre 2025</small></figcaption>
+        </figure>
+      </div>
+      <button type="button" class="car-nav car-prev" id="car-prev" aria-label="Chantier précédent">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <button type="button" class="car-nav car-next" id="car-next" aria-label="Chantier suivant">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <div class="car-dots" id="car-dots"></div>
+    </div>
+    <p class="car-note">Photos d'illustration libres de droit : ce sont des chantiers réalisés par d'autres, en attendant ceux de Robin.</p>
   </section>
 
   <section class="sec" id="prestations">
@@ -762,6 +837,52 @@ footer{padding-block:30px; color:var(--faint); font-size:.79rem; display:grid; g
         qEl.focus();
       }, {enableHighAccuracy:true, timeout:10000, maximumAge:60000});
     });
+  }
+
+  /* ---------------- carrousel ---------------- */
+  var track = document.getElementById('track');
+  if (track) {
+    var slides = track.querySelectorAll('.slide');
+    var prev = document.getElementById('car-prev'), next = document.getElementById('car-next');
+    var dotsEl = document.getElementById('car-dots'), dots = [];
+
+    slides.forEach(function(_, i){
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.setAttribute('aria-label', 'Chantier ' + (i+1));
+      d.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+      d.addEventListener('click', function(){ go(i); });
+      dotsEl.appendChild(d); dots.push(d);
+    });
+
+    var current = 0;
+    function go(i){
+      current = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({left: current * track.clientWidth, behavior: 'smooth'});
+      sync();
+    }
+    function sync(){
+      dots.forEach(function(d, i){ d.setAttribute('aria-current', String(i === current)); });
+      prev.disabled = current === 0;
+      next.disabled = current === slides.length - 1;
+    }
+    prev.addEventListener('click', function(){ go(current - 1); });
+    next.addEventListener('click', function(){ go(current + 1); });
+    track.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(current + 1); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); go(current - 1); }
+    });
+
+    var t;
+    track.addEventListener('scroll', function(){
+      clearTimeout(t);
+      t = setTimeout(function(){
+        var i = Math.round(track.scrollLeft / track.clientWidth);
+        if (i !== current) { current = i; }
+        sync();
+      }, 90);
+    });
+    sync();
   }
 
   /* ---------------- ancres ---------------- */

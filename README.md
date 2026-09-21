@@ -6,6 +6,7 @@ externes : les polices Google (Archivo, Instrument Sans, Azeret Mono).
 
 ```
 public/index.html          le site
+public/photos/             les photos du carrousel (+ CREDITS.md)
 tools/make-artifact.mjs    génère la version « aperçu Claude » (facultatif)
 render.yaml                blueprint de déploiement Render
 ```
@@ -35,9 +36,9 @@ que sur `https` ou sur `localhost` — pas en ouvrant le fichier directement.
 
 Par ordre d'impact sur le nombre d'appels :
 
-- [ ] **Les photos.** Cinq chantiers finis + un portrait, et remettre la
-      section « Réalisations ». C'est le point numéro un, loin devant
-      tout le reste. Voir la section ci-dessous.
+- [ ] **Les photos.** Remplacer les trois images d'illustration par de
+      vrais chantiers, et ajouter un portrait. Point numéro un, loin
+      devant tout le reste. Voir la section ci-dessous.
 - [ ] Le vrai numéro de portable (il apparaît à six endroits, dont la
       barre d'appel fixe et les liens `tel:`)
 - [ ] Vérifier la grille tarifaire — c'est le deuxième argument de la page
@@ -51,29 +52,25 @@ Par ordre d'impact sur le nombre d'appels :
 
 ## Les photos
 
-La section « Réalisations » a été retirée de la page tant qu'il n'y a
-rien à y mettre : des cadres vides font plus de mal que pas de section
-du tout. Le balisage et son CSS sont récupérables tels quels :
+Les trois photos du carrousel sont des **images libres de droit**
+(Pexels, usage commercial gratuit) — voir `public/photos/CREDITS.md`.
+Ce sont les chantiers de quelqu'un d'autre : elles tiennent la place,
+elles ne la remplacent pas. Une note le dit sous le carrousel.
 
-```bash
-git show 8155ee8:public/index.html > /tmp/avec-photos.html
-```
+Pour mettre les vraies : déposer les fichiers dans `public/photos/` et
+changer les trois `src` + les légendes dans la section
+`id="realisations"`. Le carrousel s'adapte tout seul au nombre de
+`<figure class="slide">` — en ajouter une suffit à ajouter un point.
 
-Il y a six emplacements déjà légendés dedans. Les fichiers vont dans
-`public/photos/`, et chaque `<div class="frame">…</div>` se remplace par
-`<img src="photos/nom.jpg" alt="description">`.
-
-Ce qu'il faut photographier :
+Ce qu'il faut photographier, par ordre d'utilité :
 
 1. une douche à l'italienne finie, en cadrage large
 2. une salle de bain complète, depuis la porte
 3. une pompe à chaleur ou une chaudière posée proprement
 4. une colonne ou un réseau refait — le détail qui montre le soin
-5. un WC suspendu / meuble vasque
-6. **un portrait de Robin en tenue, devant la camionnette**
+5. **un portrait de Robin en tenue, devant la camionnette**
 
-Lumière du jour, pièce rangée, pas de flash direct. Cadrage paysage
-pour les cinq premières, portrait pour la sixième.
+Lumière du jour, pièce rangée, pas de flash direct, cadrage paysage.
 
 ## Contenu fictif
 
