@@ -35,8 +35,9 @@ que sur `https` ou sur `localhost` — pas en ouvrant le fichier directement.
 
 Par ordre d'impact sur le nombre d'appels :
 
-- [ ] **Les photos.** Cinq chantiers finis + un portrait. C'est le point
-      numéro un, loin devant tout le reste. Voir la section ci-dessous.
+- [ ] **Les photos.** Cinq chantiers finis + un portrait, et remettre la
+      section « Réalisations ». C'est le point numéro un, loin devant
+      tout le reste. Voir la section ci-dessous.
 - [ ] Le vrai numéro de portable (il apparaît à six endroits, dont la
       barre d'appel fixe et les liens `tel:`)
 - [ ] Vérifier la grille tarifaire — c'est le deuxième argument de la page
@@ -50,9 +51,16 @@ Par ordre d'impact sur le nombre d'appels :
 
 ## Les photos
 
-Six fichiers dans `public/photos/`, puis dans la section
-`id="realisations"` remplacer chaque
-`<div class="frame">…</div>` par
+La section « Réalisations » a été retirée de la page tant qu'il n'y a
+rien à y mettre : des cadres vides font plus de mal que pas de section
+du tout. Le balisage et son CSS sont récupérables tels quels :
+
+```bash
+git show 8155ee8:public/index.html > /tmp/avec-photos.html
+```
+
+Il y a six emplacements déjà légendés dedans. Les fichiers vont dans
+`public/photos/`, et chaque `<div class="frame">…</div>` se remplace par
 `<img src="photos/nom.jpg" alt="description">`.
 
 Ce qu'il faut photographier :

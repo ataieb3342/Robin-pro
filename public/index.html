@@ -259,23 +259,6 @@ h2{font-size:clamp(1.75rem,3.8vw,2.5rem); font-weight:800}
 .communes{margin-top:18px; font-size:.86rem; color:var(--muted); line-height:1.75}
 .communes b{color:var(--ink); font-weight:500}
 
-/* ---------- réalisations ---------- */
-.shots{display:grid; gap:14px; grid-template-columns:1fr}
-@media(min-width:620px){.shots{grid-template-columns:1fr 1fr}}
-@media(min-width:900px){.shots{grid-template-columns:repeat(3,1fr)}}
-.shot{margin:0; display:grid; gap:9px}
-.shot .frame{
-  aspect-ratio:4/3; width:100%; max-width:100%; border:1px dashed var(--line-strong);
-  background:var(--surface-2); border-radius:2px; display:grid; place-items:center; padding:18px; text-align:center;
-}
-.shot .frame span{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--faint)}
-.shot img{width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px; display:block}
-.shot figcaption{font-size:.87rem; color:var(--ink); line-height:1.45}
-.shot figcaption small{display:block; color:var(--faint); font-size:.78rem; margin-top:2px}
-.shot.portrait .frame{aspect-ratio:3/4}
-.shotlist{margin-top:22px; padding:16px 18px; border:1px dashed var(--copper); border-radius:2px; background:var(--copper-soft); font-size:.86rem; color:var(--ink)}
-.shotlist b{font-weight:600}
-
 /* ---------- prestations ---------- */
 .svc-grid{display:grid; gap:1px; background:var(--line); border:1px solid var(--line)}
 @media(min-width:720px){.svc-grid{grid-template-columns:1fr 1fr}}
@@ -357,7 +340,6 @@ footer{padding-block:30px; color:var(--faint); font-size:.79rem; display:grid; g
       </span>
     </a>
     <nav class="nav">
-      <a href="#realisations">Réalisations</a>
       <a href="#zone">Ma zone</a>
       <a href="#tarifs">Tarifs</a>
       <a href="#contact">Contact</a>
@@ -453,46 +435,6 @@ footer{padding-block:30px; color:var(--faint); font-size:.79rem; display:grid; g
       Sennecey, Chevigny-Saint-Sauveur, Neuilly-Crimolois.<br>
       <b>Jusqu'à 25 km :</b> Gevrey-Chambertin, Genlis, Arc-sur-Tille, Nuits-Saint-Georges, Is-sur-Tille,
       Velars-sur-Ouche, Messigny, Saint-Julien, Fauverney, Magny-sur-Tille, Bretenière.
-    </p>
-  </section>
-
-  <section class="sec" id="realisations">
-    <div class="sec-head">
-      <div class="mark">Réalisations</div>
-      <h2>Des chantiers finis, pas des promesses</h2>
-      <p class="sec-lede">Chaque photo est prise le dernier jour du chantier, une fois le site nettoyé.</p>
-    </div>
-    <div class="shots">
-      <figure class="shot">
-        <div class="frame"><span>Photo à venir</span></div>
-        <figcaption>Douche à l'italienne, receveur extra-plat<small>Maison des années 70 — Talant, mars 2026</small></figcaption>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><span>Photo à venir</span></div>
-        <figcaption>Salle de bain complète, 6 jours<small>Appartement haussmannien — Dijon centre, janvier 2026</small></figcaption>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><span>Photo à venir</span></div>
-        <figcaption>Pompe à chaleur air/eau en remplacement d'une chaudière fioul<small>Pavillon — Marsannay-la-Côte, novembre 2025</small></figcaption>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><span>Photo à venir</span></div>
-        <figcaption>Colonne d'alimentation refaite en cuivre<small>Immeuble de 1930 — Chenôve, février 2026</small></figcaption>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><span>Photo à venir</span></div>
-        <figcaption>WC suspendu et meuble double vasque<small>Quetigny, avril 2026</small></figcaption>
-      </figure>
-      <figure class="shot portrait">
-        <div class="frame"><span>Portrait à venir</span></div>
-        <figcaption>Robin Plantiveau<small>Neuf ans de chantier avant de s'installer à son compte</small></figcaption>
-      </figure>
-    </div>
-    <p class="shotlist">
-      <b>Note pour Robin :</b> cinq chantiers finis en cadrage large et bien éclairé, plus un portrait de toi
-      en tenue devant la camionnette. C'est ce qui décide les gros chantiers — les gens achètent une tête
-      et une salle de bain terminée. Les fichiers vont dans <span class="mono">public/photos/</span>, les
-      légendes ci-dessus sont à corriger.
     </p>
   </section>
 
